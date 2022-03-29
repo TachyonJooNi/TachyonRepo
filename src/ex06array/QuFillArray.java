@@ -1,4 +1,7 @@
 package ex06array;
+
+import java.util.Scanner;
+
 /*
 문제3) 홀수/짝수 구분하여 배열채우기
 파일명 : QuFillArray.java
@@ -25,6 +28,37 @@ public class QuFillArray {
 
 	public static void main(String[] args) {
 
+		int[] arr = new int[10];
+		int[] arr2 = new int[10];
+		int on = 0; //홀수
+		int en = arr2.length; //짝수
+		
+		Scanner sc = new Scanner(System.in);
+		
+		for(int i=0; i<arr.length; i++) {
+			System.out.print((i+1)+"번째 정수를 입력하세요:");
+			int x = sc.nextInt();
+			arr[i] = x;
+			
+			if(x%2==0) {
+				arr2[en-1] = x;
+				en--;
+			}
+			else {
+				arr2[on] = x;
+				on++;
+			}
+		}
+		for(int e : arr ) {
+			System.out.print(e+" ");
+		}
+		System.out.println();
+		
+		for(int e : arr2) {
+			System.out.print(e+ " ");
+		}
+		System.out.println();
+		
 	}
 
 }
