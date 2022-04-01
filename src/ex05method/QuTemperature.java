@@ -10,9 +10,26 @@ import java.util.Scanner;
 섭씨 = (화씨 - 32) / 1.8
 */
 public class QuTemperature {
-
+		
+	//섭씨->화씨
+	static double celsiusToFahrenheit(double cel) {
+		double fah = 1.8 * cel + 32;
+		return fah;
+	}
+	
+	//화씨->섭씨
+	static double fahrenheitToCelsius(double fah) {
+		return (fah - 32) / 1.8;
+	}
+	
 	public static void main(String[] args) {
 		
+		System.out.println("섭씨23도=>화씨:"+ celsiusToFahrenheit(23));
+		System.out.println("섭씨98도=>섭씨:"+ fahrenheitToCelsius(98.0));
+		
+		
+/*		내가 푼거
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("온도를 입력하세요>>");
 		double tem = sc.nextDouble();
@@ -47,5 +64,6 @@ public class QuTemperature {
 	static double cTem(double t) {
 		double cTem = (t - 32) / 1.8;
 		return cTem;
+*/		
 	}
 }

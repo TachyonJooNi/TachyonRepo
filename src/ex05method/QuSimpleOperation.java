@@ -17,6 +17,26 @@ import java.util.Scanner;
 */
 public class QuSimpleOperation {
 
+	//반환값은 없고 매개변수가 있는 형태의 메서드
+	static void arithmetic(int n1, int n2) {
+		System.out.printf("덧셈:%d+%d=%d%n", n1, n2, (n1+n2));
+		System.out.printf("뺄셈:%d-%d=%d%n", n1, n2, (n1-n2));
+		System.out.printf("곱셈:%d*%d=%d%n", n1, n2, (n1*n2));
+		System.out.printf("나눗셈(몫):%d/%d=%d%n", n1, n2, (n1/n2));
+		//%기호를 출력하기 위해서 %%와 같이 사용해야 한다. 
+		System.out.printf("나눗셈(나머지):%d%%%d=%d%n", n1, n2, (n1%n2));		
+	}
+	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("정수1을입력:");
+		int num1 = scanner.nextInt();
+		System.out.print("정수2을입력:");
+		int num2 = scanner.nextInt();
+		arithmetic(num1, num2);
+	
+	
+/*	내가 푼거
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("첫번째 양수를 입력해주세요."); // 100 입력
@@ -35,6 +55,6 @@ public class QuSimpleOperation {
 		System.out.println("곱셈결과 -> "+ (x*y));
 		System.out.println("나눗셈 몫 -> "+ (x/y));
 		System.out.println("나눗셈 나머지 -> "+ (x%y));
-		
+*/	
 	}
 }
