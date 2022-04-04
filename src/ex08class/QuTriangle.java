@@ -20,6 +20,35 @@ public static void main(String[] args)
 삼각형의 넓이 : 350.0
 
 */
+//처음 메인메서드 샘플코드를 보고 전체적인 틀을 만든다.
+class Triangle {
+	
+	//멤버변수(밑변, 높이)
+	int bottom;
+	int height;
+	
+	public void init(int bottom, int height) {
+		//멤버변수와 매개변수의 이름이 동일할때 this를 통해 구분할수 있다.
+		this.bottom = bottom;
+		this.height = height;
+	}
+	//삼각형의 넓이 계산
+	public double getArea() {
+		//공식 : 밑변 * 높이 * 0.5;
+		return bottom * height * 0.5;
+	}
+	//밑변과 높이를 변경
+	public void setBottom(int bot) {
+		//this는 멤버변수를 가리킨다.
+		this.bottom = bot;
+	}
+	public void setHeight(int hei) {
+		//맴버변수와 매개변수의 이름이 다르므로 this를 생략해도 된다.
+		height = hei;
+	}
+}
+
+/* 내가 푼거
 class Triangle {
 	
 	int bot, high;
@@ -41,7 +70,7 @@ class Triangle {
 		return bot * high / 2;
 	}
 }
-
+*/
 public class QuTriangle {
 
 	public static void main(String[] args) {

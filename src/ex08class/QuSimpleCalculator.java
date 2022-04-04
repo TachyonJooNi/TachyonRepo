@@ -30,11 +30,56 @@ public static void main(String[] args)
 뺄셈횟수 : 1
 곱셈횟수 : 2
 나눗셈횟수 : 1
-
 */
+
+class CalculatorEx {
+	
+	//사칙연산의 횟수를 카운트할 변수 및 초기화
+	int addCnt, minCnt, mulCnt, divCnt;
+	public void init() {
+		addCnt = 0;
+		minCnt = 0;
+		mulCnt = 0;
+		divCnt = 0;
+	}
+	//연산 후 변수에 저장
+	//정수보다는 실수가 큰 자료형이므로 double로 선언하였다.
+	//이경우 정수, 실수 두가지의 인수를 모두 받을 수 있다.
+	public double add(double num1, double num2) {
+		addCnt++;//덧셈 연산시 카운트 증가
+		double result = num1 + num2;//연산을 수행
+		//return 0; //메서드만들고 에러 없에려고 잠시 이렇게 정의
+		return result;//결과를 반환
+	}
+	public double min(double num1, double num2) {
+		minCnt++;
+		double result = num1 - num2;
+		return result;
+	}
+	//연산의 결과를 즉시 반환
+	public double mul(double num1, double num2) {
+		mulCnt++;
+		return num1 * num2;
+	}
+	public double div(double num1, double num2) {
+		divCnt++;
+		return num1 / num2;
+	}
+	//연산의 횟수 출력
+	public void showOpCount() {
+		System.out.println("덧셈횟수:"+ addCnt);
+		System.out.println("뺄셈횟수:"+ minCnt);
+		System.out.println("곱셈횟수:"+ mulCnt);
+		System.out.println("나눗셈횟수:"+ divCnt);
+	}
+}
+
+
+/* 내가 푼거
 class CalculatorEx {
 	
 	int countAdd, countMin, countMul, countDiv;
+	
 	void init() {
 		countAdd = 0;
 		countMin = 0;
@@ -65,14 +110,16 @@ class CalculatorEx {
 		System.out.println("나눗셈횟수 : "+ countDiv);
 	}
 }
-
+*/
 public class QuSimpleCalculator {
 
 	public static void main(String[] args) {
 		
 		CalculatorEx cal = new CalculatorEx();
-		cal.init();
+		cal.init();// 반환타입이 있을까?? >> 있을수도있고 없을수도 있다.
 		System.out.println("1 + 2 = " + cal.add(1 , 2));
+		// 반환타입이 있을까?? 반환타입이 무조건 있어야한다. 결과값이 있어야 출력이 된다. 없으면 에러뜸
+		// int r = add(); << 이런것도 무조건 반환값이 있어야한다. (이항연산자가있으면 값이 좌우항에 있어야한다)
 		System.out.println("10.5 - 5.5 = " + cal.min(10.5 , 5.5));
 		System.out.println("4.0 * 5.0 = " + cal.mul(4.0 , 5.0));
 		System.out.println("100 / 25 = " + cal.div(100 , 25));
