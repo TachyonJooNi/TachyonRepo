@@ -2,9 +2,9 @@ package ex12inheritance;
 
 /*
 상속(Inheritance)
-	: 기존에 정의도니 클래스에 메서드와 변수를 추가하여 새로운 클래스를
-	정의하는 것을 말한다. 부모클래스를 자식클래스가 상속할떄는
-	extends키워드를 사용한다.
+	: 기존에 정의된 클래스에 메서드와 변수를 추가하여 새로운 클래스를
+	정의하는것을 말한다. 부모클래스를 자식클래스가 상속할떄는
+	extends 키워드를 사용한다.
 */
 
 //부모클래스(상위클래스) : 사람의 일반적인 형태를 추상화
@@ -12,7 +12,7 @@ class Man{
 	//멤버변수는 private이므로 클래스 내부에서만 접근할수있다.
 	private String name;
 	
-	//생성자 오버로딩으로 2개를 정의함
+	//생성자는 오버로딩으로 2개를 정의함
 	public Man() {
 		System.out.println("Man클래스 디폴트 생성자 호출됨");
 	}
@@ -24,7 +24,7 @@ class Man{
 	//멤버메서드 정의
 	public void tellYourName() {
 		//private 멤버라도 동일 클래스내에서 접근할 수 있다.
-		System.out.println("내 이름은 "+ name +" 입니다");
+		System.out.println("내 이름은 "+ name +" 입니다.");
 	}
 }
 //자식클래스(하위클래스) : Man클래스를 상속받아 회사원을 추상화
