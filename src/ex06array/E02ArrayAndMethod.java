@@ -38,7 +38,7 @@ public class E02ArrayAndMethod {
 	
 	/*
 	매개변수로 전달된 배열의 참조값을 ar이 받게되므로 결국 해당 메서드에서도
-	동일한 배열을 참조하게 된다. 즉, main메서드에서 생생한 배여로가 동일한
+	동일한 배열을 참조하게 된다. 즉, main메서드에서 생성한 배여로가 동일한
 	배열을 참조하게 되는것이다.
 	*/
 	static int[] addAllArray(int[] ar, int addVal) {
