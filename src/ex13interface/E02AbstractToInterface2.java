@@ -1,31 +1,26 @@
 package ex13interface;
 
-//프로젝트 전체에서 기준의 역할을 하는 추상클래스
-abstract class PersonalNumberStorageAbs {
-	/*
-	해당 클래스는 추상메서드를 포함하고 있으므로 상속받게되면
-	하위 클래스에서는 반드시 추상메서드를 오버라이딩 해야 한다.
-	*/
-	public abstract void addPersonalInfo(String juminNum, String name);
-	public abstract String searchPersonalInfo(String juminNum);
-}
 /*
-DTO(Data Transfer Object) : 데이터를 저장하고 전송하기 위한 용도의 객체를 말한다.
-	VO(Value Object)라고 표현하기도 한다.
-	해당 프로그램에서는 한 사람의 정보를 저장하는 용도로 사용된다.
+추상클래스를 인터페이스로 변경하기
+	abstract class => interface
+	메서드인 경우 public abstract 제거
+	멤버변수인 경우 public static final 제거
 */
-class PersonalInfoDTO {
+interface PersonalNumberStorageAbs2 {
+	
+	void addPersonalInfo(String juminNum, String name);
+	String searchPersonalInfo(String juminNum);
+}
+
+class PersonalInfoDTO2 {
 	private String name;
 	private String juminNum;
 	//생성자
-	public PersonalInfoDTO(String name, String juminNum) {
+	public PersonalInfoDTO2(String name, String juminNum) {
 		this.name = name;
 		this.juminNum = juminNum;
 	}
-	/*
-	getter/setter메서드 : DTO객체에서 private으로 선언된 멤버변수의 값을
-		설정하거나 반환할때 사용한다.
-	*/
+
 	public String getName() {
 		return name;
 	}
@@ -41,18 +36,21 @@ class PersonalInfoDTO {
 }
 
 /*
-제공된 추상클래스를 상속하여 사람의 정보를 저장하는 기능과 검색의 기능을
-구현한다.
-시나리오상 A사가 만들게 되는 코드
+클래스가 클래스를 상속할때 => extends
+클래스가 인터페이스를 상속할때 => implements
+매우 드물지만 인터페이스가 인터페이스를 상속할때 => extends
+
+또한 extends은 "상속"이라 하고, implements는 "구현"이라 표현한다.
+구현은 우리말로는 implements보다 넓은 의미로 쓰이기 때문에 그냥 implements한다고 한다.
 */
-class PersonalNumberStorageExt extends PersonalNumberStorageAbs {
+class PersonalNumberStorageExt2 implements PersonalNumberStorageAbs2 {
 	
 	//정보저장용 객체배열과 인덱스 카운트용으로 사용할 멤버변수
-	PersonalInfoDTO[] personalArr;
+	PersonalInfoDTO2[] personalArr;
 	int numOfPerInfo;
 	//생성자에서 초기화
-	public PersonalNumberStorageExt(int arrSize) {
-		personalArr = new PersonalInfoDTO[arrSize];
+	public PersonalNumberStorageExt2(int arrSize) {
+		personalArr = new PersonalInfoDTO2[arrSize];
 		numOfPerInfo = 0;
 	}
 	
@@ -67,8 +65,8 @@ class PersonalNumberStorageExt extends PersonalNumberStorageAbs {
 	*/
 	@Override
 	public void addPersonalInfo(String juminNum, String name) {
-		personalArr[numOfPerInfo++] = new PersonalInfoDTO(name, juminNum);
-//		personalArr[numOfPerInfo] = new PersonalInfoDTO(name, juminNum);
+		personalArr[numOfPerInfo++] = new PersonalInfoDTO2(name, juminNum);
+//		personalArr[numOfPerInfo] = new PersonalInfoDTO2(name, juminNum);
 //		numOfPerInfo++; //아래 2줄을 위처럼 1줄로 줄일수 있다.
 	}
 	/*
@@ -91,12 +89,12 @@ class PersonalNumberStorageExt extends PersonalNumberStorageAbs {
 	}
 }
 
-public class E02AbstractToInterface1 {
+public class E02AbstractToInterface2 {
 
 	public static void main(String[] args) {
 		
 		//정보저장용 객체 생성
-		PersonalNumberStorageExt storage = new PersonalNumberStorageExt(10);
+		PersonalNumberStorageExt2 storage = new PersonalNumberStorageExt2(10);
 		
 		//2개의 정보를 추가
 		storage.addPersonalInfo("901234-2222222", "김태희");
