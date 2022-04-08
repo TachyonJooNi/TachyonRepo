@@ -80,9 +80,9 @@ class Ring{
 	//멤버변수
 	Circle innerCircle;//안쪽의 원
 	Circle outerCircle;//바깥쪽의 원
-	public Ring(int x1, int y1, int radian1, int x2, int y2, int radian2) {
-		innerCircle = new Circle(x1, y1, radian1);
-		outerCircle = new Circle(x2, y2, radian2);
+	public Ring(int inX, int inY, int inRadian, int outX, int outY, int outRadian) {
+		innerCircle = new Circle(inX, inY, inRadian);
+		outerCircle = new Circle(outX, outY, outRadian);
 	}
 	
    	public void showRingInfo() {

@@ -38,7 +38,7 @@ int SCISSORS=1, ROCK=2, PAPER=3;
 */
 public class QuRockPaperScissors {
 
-	public static void main(String[] args) {
+	static void game() {
 
 		int count = 0;
 		int comNum;
@@ -53,23 +53,28 @@ public class QuRockPaperScissors {
 			selNum = sc.nextInt();
 			if (comNum == 1) {
 				comString = "가위";
-			} else if (comNum == 2) {
+			}
+			else if (comNum == 2) {
 				comString = "바위";
-			} else {
+			}
+			else {
 				comString = "보";
 			}
 
 			if (selNum == 1) {
 				selString = "가위";
-			} else if (selNum == 2) {
+			}
+			else if (selNum == 2) {
 				selString = "바위";
-			} else {
+			}
+			else {
 				selString = "보";
 			}
 
-			if (0 > selNum && selNum > 3) {
+			if (0 > selNum || selNum > 3) {
 				System.out.println("가위바위보 할줄 모르세요? 제대로 내세요^^;");
-			} else {
+			}
+			else {
 				System.out.printf("사용자 : %s, 컴퓨터 : %s%n", selString, comString);
 				switch (selNum - comNum) {
 				case -2:
@@ -111,7 +116,12 @@ public class QuRockPaperScissors {
 					}
 				}
 			}
-		} // while문의 끝
+		}////while문의 끝
+	}
+
+	public static void main(String[] args) {
+
+		QuRockPaperScissors.game();
 
 	}
 }

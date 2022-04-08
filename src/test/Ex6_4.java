@@ -8,7 +8,7 @@ class Student {
 		return kor + eng + math;
 	}
 	double getAverage() {
-		return 
+		return 0;
 	}
 }
 
