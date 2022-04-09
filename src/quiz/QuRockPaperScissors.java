@@ -51,6 +51,7 @@ public class QuRockPaperScissors {
 			comNum = (int) (Math.random() * 3) + 1;
 			System.out.print("무엇을 내겠습니까?(1: 가위, 2:바위, 3:보) : ");
 			selNum = sc.nextInt();
+			
 			if (comNum == 1) {
 				comString = "가위";
 			}

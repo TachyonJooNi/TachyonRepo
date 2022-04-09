@@ -86,6 +86,7 @@ class Ring{
 	}
 	
    	public void showRingInfo() {
+   		
    		System.out.println("안쪽원의 정보 :");
  		System.out.println("반지름 : "+ innerCircle.radian);
  		System.out.println("[x좌표:"+innerCircle.center.xDot+", y좌표"+innerCircle.center.yDot+"]");
