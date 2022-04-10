@@ -34,49 +34,28 @@ import java.util.Scanner;
 
 5번의 게임이 끝났습니다. 게임을 계속하시겠습니까? 재시작(1), 종료(0) : 5
 잘못입력하셨습니다. 재시작(1), 종료(0)중에 입력하세요…..
-int SCISSORS=1, ROCK=2, PAPER=3;
+
 */
-public class QuRockPaperScissors {
+class RpsGame {
+	
+	int count = 0;
+	Scanner sc = new Scanner(System.in);
+	
+	void gameStart() {
 
-	static void game() {
-
-		int count = 0;
-		int comNum;
-		int selNum;
-		String comString, selString;
-
-		Scanner sc = new Scanner(System.in);
+		int comNum,selNum;
+		String[] weapon = {"가위", "바위", "보"};
 
 		while (count < 5) {
 			comNum = (int) (Math.random() * 3) + 1;
 			System.out.print("무엇을 내겠습니까?(1: 가위, 2:바위, 3:보) : ");
 			selNum = sc.nextInt();
 			
-			if (comNum == 1) {
-				comString = "가위";
-			}
-			else if (comNum == 2) {
-				comString = "바위";
-			}
-			else {
-				comString = "보";
-			}
-
-			if (selNum == 1) {
-				selString = "가위";
-			}
-			else if (selNum == 2) {
-				selString = "바위";
-			}
-			else {
-				selString = "보";
-			}
-
-			if (0 > selNum || selNum > 3) {
+			if (1 > selNum || selNum > 3) {
 				System.out.println("가위바위보 할줄 모르세요? 제대로 내세요^^;");
 			}
 			else {
-				System.out.printf("사용자 : %s, 컴퓨터 : %s%n", selString, comString);
+				System.out.printf("사용자 : %s, 컴퓨터 : %s%n", weapon[selNum-1], weapon[selNum-1]);
 				switch (selNum - comNum) {
 				case -2:
 					System.out.println("이겼습니다.");
@@ -100,29 +79,35 @@ public class QuRockPaperScissors {
 					break;
 				}
 			}
-			if (count == 5) {
-				System.out.print("5번의 게임이 끝났습니다. 게임을 계속하시겠습니까? 재시작(1), 종료(0) : ");
-				int reStart = sc.nextInt();
-				while (true) {
-					if (reStart == 1) {
-						System.out.printf("%n….게임재시작…%n%n");
-						count = 0;
-						break;
-					} else if (reStart == 0) {
-						System.out.println("….게임종료….");
-						return;
-					} else {
-						System.out.print("잘못입력하셨습니다. 재시작(1), 종료(0)중에 입력하세요…..");
-						reStart = sc.nextInt();
-					}
-				}
+		}//end of while
+		count = 0;
+		reStart();
+	}
+	
+	void reStart() {
+		System.out.print("5번의 게임이 끝났습니다. 게임을 계속하시겠습니까? 재시작(1), 종료(0) : ");
+		int reStart = sc.nextInt();
+		while (true) {
+			if (reStart == 1) {
+				System.out.printf("%n….게임재시작…%n%n");
+				gameStart();
+			} else if (reStart == 0) {
+				System.out.println("….게임종료….");
+				return;
+			} else {
+				System.out.print("잘못입력하셨습니다. 재시작(1), 종료(0)중에 입력하세요…..");
+				reStart = sc.nextInt();
 			}
-		}////while문의 끝
+		}
 	}
+}//end of class
 
+public class QuRockPaperScissors {
+	
 	public static void main(String[] args) {
+		
+		RpsGame rpsGame = new RpsGame();
+		rpsGame.gameStart();
 
-		QuRockPaperScissors.game();
-
-	}
-}
+	}///end of main
+}////end of public class

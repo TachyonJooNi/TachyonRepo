@@ -73,6 +73,12 @@ class Circle{
 		center = new Point(x, y);
 		this.radian = radian;
 	}
+	
+   	public void showCircleInfo() {
+   		System.out.println("반지름 : "+ radian);
+   		center.showPointInfo();
+   	}
+
 }
 
 //원 2개를 겹쳐서 링을 표현하는 클래스
@@ -86,13 +92,10 @@ class Ring{
 	}
 	
    	public void showRingInfo() {
-   		
    		System.out.println("안쪽원의 정보 :");
- 		System.out.println("반지름 : "+ innerCircle.radian);
- 		System.out.println("[x좌표:"+innerCircle.center.xDot+", y좌표"+innerCircle.center.yDot+"]");
+   		innerCircle.showCircleInfo();
  		System.out.println("바깥쪽원의 정보 :");
- 		System.out.println("반지름 : "+ outerCircle.radian);
- 		System.out.println("[x좌표:"+outerCircle.center.xDot+", y좌표"+outerCircle.center.xDot+"]");
+ 		outerCircle.showCircleInfo();
    	}
 	
 }
