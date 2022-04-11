@@ -1,4 +1,4 @@
-package ex14useclass;
+package ex15usefulclass;
 
 /*
 Java의 규칙 : java.lang패키지는 자동으로 import된다.

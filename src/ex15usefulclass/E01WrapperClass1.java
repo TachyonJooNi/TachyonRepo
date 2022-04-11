@@ -1,4 +1,4 @@
-package ex14useclass;
+package ex15usefulclass;
 /*
 Wrapper클래스
 	: 기본자료형의 데이터를 인스턴스화(객체화)할때 사용하는 클래스로

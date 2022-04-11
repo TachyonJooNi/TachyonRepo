@@ -1,5 +1,6 @@
 package quiz;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /*
@@ -36,6 +37,34 @@ import java.util.Scanner;
 잘못입력하셨습니다. 재시작(1), 종료(0)중에 입력하세요…..
 
 */
+
+public class QuRockPaperScissors {
+	
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		Random random = new Random();
+		int gameCount = 0;
+		
+		//1.난수생성
+		int com = random.nextInt(10000) % 3 + 1;//1~3사이의 난수
+		System.out.println("컴퓨터:"+ com);
+		
+		//2.사용자입력
+		int user = 0;
+		System.out.println("가위바위보를 입력하세요.");
+		System.out.println("가위(1), 바위(2), 보(3)=>");
+		user = scanner.nextInt();
+		//3.승부판단
+		//사용자가 정상적으로 입력한 경우
+		
+		//4.게임재시작 여부 확인
+		
+		
+	}
+}
+
+/*
 class RpsGame {
 	
 	int count = 0;
@@ -111,3 +140,4 @@ public class QuRockPaperScissors {
 
 	}///end of main
 }////end of public class
+*/

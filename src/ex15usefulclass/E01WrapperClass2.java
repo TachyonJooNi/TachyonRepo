@@ -1,4 +1,4 @@
-package ex14useclass;
+package ex15usefulclass;
 
 public class E01WrapperClass2 {
 

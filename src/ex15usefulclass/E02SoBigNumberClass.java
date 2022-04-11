@@ -1,4 +1,4 @@
-package ex14useclass;
+package ex15usefulclass;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

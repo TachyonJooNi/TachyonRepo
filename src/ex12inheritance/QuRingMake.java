@@ -53,6 +53,68 @@ class QuRingMake {
 
 */
 
+//점을 표현한 클래스
+class Point {
+	//2개의 좌표를 통해 하나의 점을 표현할 수 있다.
+   	int xDot, yDot;
+   	public Point(int x, int y) {
+         		xDot=x;
+         		yDot=y;
+   	}
+   	public void showPointInfo() {
+         		System.out.println("[x좌표:"+xDot+", y좌표"+yDot+"]");
+   	}
+}
+//Point클래스를 기반으로 원(Circle) 클래스 표현하기
+class Circle{	
+	//멤버변수
+	int radian;//반지름
+	Point center;
+	
+	//생성자(초기화를 위해 인수 3개가 필요함)
+	public Circle(int radian, int x, int y) {
+		center = new Point(x, y);
+		//반지름 초기화
+		this.radian = radian;
+		//Point객체 생성 및 초기화
+	}
+	
+	//멤버변수 정보 출력
+	void showCircleInfo() {
+		//포인트 정보를 먼저 출력
+		center.showPointInfo();//상속관계였다면 super. 으로 접근했을것이다.
+		//반지름 정보 출력
+		System.out.println("반지름:"+ radian);
+	}
+}
+//원 2개를 겹쳐서 링을 표현하는 클래스
+class Ring{
+	//멤버변수
+	Circle innerCircle;//안쪽의 원
+	Circle outerCircle;//바깥쪽의 원
+	
+	//생성자(초기화를 위해 6개의 인수가 필요함)
+	public Ring(int inX, int  inY, int inRad, int outX, int outY, int outRad) {
+		//2개의 원 객체 생성
+		innerCircle = new Circle(inRad, inX, inY);
+		outerCircle = new Circle(outRad, outX, outY);
+	}
+	//정보출력
+	void showRingInfo() {
+		System.out.println("안쪽원의정보:");
+		innerCircle.showCircleInfo();
+		System.out.println("안쪽원의정보:");
+		outerCircle.showCircleInfo();
+	}
+}
+class QuRingMake {
+	public static void main(String[] args) {
+		Ring c = new Ring(1,1,3,2,2,9);
+		c.showRingInfo();
+	}
+}
+
+/*
 class Point {
    	int xDot, yDot;
    	public Point(int x, int y) {
@@ -105,3 +167,4 @@ class QuRingMake {
 		c.showRingInfo();
 	}
 }
+*/

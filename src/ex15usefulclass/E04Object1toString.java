@@ -1,4 +1,4 @@
-package ex14useclass;
+package ex15usefulclass;
 
 /*
 Object클래스
