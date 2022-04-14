@@ -18,15 +18,16 @@ class WrongNumberException extends Exception {
 class RpsGame {
 
 	int count = 0;
+	
 	void gameStart() {
-
+		
 		int comNum, selNum;
 		String[] weapon = { "가위", "바위", "보" };
 
 		while (count < 5) {
 			try {
-				comNum = (int) (Math.random() * 3) + 1;
 				System.out.print("무엇을 내겠습니까?(1: 가위, 2:바위, 3:보) : ");
+				comNum = (int) (Math.random() * 3) + 1;
 				selNum = new Scanner(System.in).nextInt();
 
 				if (1 > selNum || selNum > 3) {
@@ -34,20 +35,17 @@ class RpsGame {
 				} else {
 					System.out.printf("사용자 : %s, 컴퓨터 : %s%n", weapon[selNum - 1], weapon[comNum - 1]);
 					switch (selNum - comNum) {
-					case -2:
+					case -2: case 1:
 						System.out.println("이겼습니다."); break;
-					case -1:
+					case -1: case 2:
 						System.out.println("졌습니다."); break;
 					case 0:
 						System.out.println("비겼습니다."); break;
-					case 1:
-						System.out.println("이겼습니다."); break;
-					case 2:
-						System.out.println("졌습니다."); break;
 					}
 					count++;
 				}
-			} catch (Exception e) {
+			} 
+			catch (Exception e) {
 				System.out.println("1~3 사이의 숫자를 입력하세요.");
 				continue;
 			}
@@ -57,16 +55,17 @@ class RpsGame {
 	}
 
 	void reStart() {
+		int reStart;
 		System.out.print("5번의 게임이 끝났습니다. 게임을 계속하시겠습니까? 재시작(1), 종료(0) : ");
 		while (true) {
 			try {
-				int reStart = new Scanner(System.in).nextInt();
+				reStart = new Scanner(System.in).nextInt();
 				if (reStart == 1) {
 					System.out.printf("%n….게임재시작…%n%n");
 					gameStart();
 				} else if (reStart == 0) {
 					System.out.println("….게임종료….");
-					break;
+					return;
 				} else if (0>reStart || reStart>1){
 					WrongNumberException ex = new WrongNumberException();
 					throw ex;
