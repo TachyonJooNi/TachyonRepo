@@ -1,6 +1,5 @@
 package quiz;
 
-import java.util.Random;
 import java.util.Scanner;
 
 /*
@@ -9,8 +8,8 @@ import java.util.Scanner;
 게임과 관련없는 숫자를 입력했을때 사용자정의 예외클래스를 통해 처리하시오.
 예외처리 클래스명 : WrongNumberException
 */
-class WrongNumberException extends Exception {
-	public WrongNumberException() {
+class WrongNumberException1 extends Exception {
+	public WrongNumberException1() {
 		super("잘못입력하셨습니다. 재시작(1), 종료(0)중에 입력하세요");
 	}
 }
@@ -67,10 +66,10 @@ class RpsGame {
 					System.out.println("….게임종료….");
 					return;
 				} else if (0>reStart || reStart>1){
-					WrongNumberException ex = new WrongNumberException();
+					WrongNumberException1 ex = new WrongNumberException1();
 					throw ex;
 				}
-			} catch (WrongNumberException e) {
+			} catch (WrongNumberException1 e) {
 				System.out.println(e.getMessage());
 				continue;
 			} catch (Exception e) {

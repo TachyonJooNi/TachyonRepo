@@ -1,7 +1,10 @@
 package ex17collection;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Scanner;
+
+import common.Student;
 
 /*
 문제1) QuArrayList.java 
@@ -9,7 +12,6 @@ import java.util.Scanner;
 위치(indexOf사용)를 알아내서 해당 인덱스로 그 객체를 삭제하고 
 삭제된 객체의 정보(이름,나이,학번)를 출력하여라.
 */
-
 /*
 샘플코드]
 
@@ -41,8 +43,8 @@ public static void main(String[] args) {
 
 	//4.전체정보 출력
 }
-
-
+*/
+/*
 실행결과]
 검색할 이름을 입력하세요:가길동
 오버라이딩 한 equals() 호출됨:가길동
@@ -51,20 +53,7 @@ public static void main(String[] args) {
 이름:나길동, 나이:20, 학번:2017
 이름:다길동, 나이:30, 학번:2016
 이름:마길동, 나이:40, 학번:2015
-
 */
-
-class Student {
-	String name, year;
-	int age;
-
-	public Student(String name, int age, String year) {
-		this.name = name;
-		this.year = year;
-		this.age = age;
-	}
-
-}
 
 public class QuArrayList {
 
@@ -87,20 +76,26 @@ public class QuArrayList {
 
 		// 1.검색할 이름을 입력받음
 		Scanner sc = new Scanner(System.in);
-		System.out.print("검색할 이름을 입력하세요 : ");
+		System.out.print("검색할 이름을 입력하세요:");
 		String str = sc.nextLine();
-		int index = list.indexOf(str);
-		System.out.println(index);
+		int count = list.size();
+
 		// 2.확장for문으로 컬렉션 전체를 접근
 		for (Student st : list) {
-
+			if (str.equals(st.getName())) {
+				System.out.println("[검색되었습니다]");
+				list.remove(list.indexOf(st));
+				System.out.println("[삭제후 정보출력]");
+				Iterator<Student> it = list.iterator();
+				while (it.hasNext()) {
+					System.out.println(it.next());
+				}
+				break;
+			}
+			count--;
+			if (count == 0) {
+				System.out.println("검색결과가 없습니다.");
+			}
 		}
-
 	}
-
-	// 3.검색결과 유/무에 따라
-	// 검색결과 있을때…검색된 데이터 삭제
-	// 검색결과 없을때...검색결과가 없다고 출력
-
-	// 4.전체정보 출력
 }
