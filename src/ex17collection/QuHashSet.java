@@ -87,6 +87,95 @@ class Avengers {
 		return "Avengers [본명=" + name + ", 닉네임=" + heroName + ", "
 				+ "능력=" + weapon +"]";
 	}
+	
+	@Override
+	public int hashCode() {
+		System.out.println("hashCode() 호출됨");
+		
+		//방법1 : hash()메서드를 이용한다.
+		int hc1 = Objects.hash(name, heroName, weapon);
+		return hc1;
+		//방법2 : 각 String객체의 hashCode값을 더해서 반환한다.
+//		int hc2 = name.hashCode() + heroName.hashCode() + weapon.hashCode();
+//		return hc2;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		Avengers avn = (Avengers)obj;
+		//3가지 멤버변수의 값이 모두 동일하면 true를 반환한다.
+		if(this.name.equals(avn.name) && this.heroName.equals(avn.heroName)
+				&& this.weapon.equals(avn.weapon)) {
+			//이때는 set에 저장되지 않는다.
+			return true;
+		}
+		else {
+			//다른값이 있다면 set에 저장된다.
+			return false;
+		}
+	}
+}
+
+public class QuHashSet {
+
+	public static void main(String[] args) {
+
+		HashSet<Avengers> set = new HashSet<Avengers>();
+
+		Avengers hero1 = new Avengers("토니스타크", "아이언맨", "Mark-48 수트");
+		Avengers hero2 = new Avengers("스티브로져스", "캡틴아메리카", "비브라늄 방패");
+		Avengers hero3 = new Avengers("브루스배너", "헐크", "강한피부&점프");
+		Avengers hero4 = new Avengers("토니스타크", "아이언맨", "Mark-48 수트");
+		
+		set.add(hero1);
+		set.add(hero2);
+		set.add(hero3);
+		set.add(hero4);		 
+
+		System.out.println("[최초 전체 정보출력]");
+		for(Avengers av : set)
+		{
+			System.out.println(av.toString());			
+		}
+		
+		System.out.println("## 검색 기능 추가 ##");
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("검색할 이름을 입력하세요:");
+		String searchName = scanner.nextLine();
+		
+		boolean isFind = false;
+		Iterator<Avengers> itr = set.iterator();
+		while(itr.hasNext()) {
+			//어벤져스 객체를 인출한다.
+			Avengers av = itr.next();
+			//검색할 이름과 일치하는지 확인한다.
+			if(searchName.equals(av.name)) {
+				//toString()메서드가 오버라이딩 되었으므로 print()로 즉시 출력가능
+				System.out.println(av);
+				isFind = true;
+			}
+		}
+		if(isFind==false) System.out.println("## 검색된 영웅의 정보가 없습니다. ##");
+	}
+}
+
+/*
+class Avengers {
+	String name;
+	String heroName;
+	String weapon;
+
+	public Avengers(String name, String heroName, String weapon) {
+		super();
+		this.name = name;
+		this.heroName = heroName;
+		this.weapon = weapon;
+	}
+
+	@Override
+	public String toString() {
+		return "Avengers [본명=" + name + ", 닉네임=" + heroName + ", "
+				+ "능력=" + weapon +"]";
+	}
 
 	@Override
 	public int hashCode() {
@@ -143,3 +232,4 @@ public class QuHashSet {
 		}
 	}
 }
+*/

@@ -75,8 +75,47 @@ public class QuArrayList {
 		list.add(st4);
 
 		// 1.검색할 이름을 입력받음
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("삭제할 이름을 입력하세요:");
+		String delName = scanner.nextLine();
+		
+		//List컬렉션(배열)의 인덱스는 0부터 시작하므로 초기값은 -1로 해줘야 한다.
+		int index = -1;
+		// 2.확장for문으로 컬렉션 전체를 접근
+		for(Student st : list) {
+			if(delName.equals(st.getName())) {
+				index = list.indexOf(st);
+			}
+		}
+		
+		//3.검색결과 유/무에 따라 
+		if(index!=-1) {
+			//검색결과 있을때…검색된 데이터 삭제
+			Student student = list.remove(index);
+			/*
+			remove()를 통해 객체를 삭제할때
+				인덱스를 통해 삭제하면 삭제된 객체의 참조값이 반환된다.
+				객체의 참조값을 통해 삭제하면 boolean값이 반환된다.
+			*/
+			//toString()메서드가 오버라이딩 되어 있으므로 참조값으로 출력할 수 있다.
+			System.out.println("## 다음 객체가 삭제되었습니다. ##");
+			System.out.println(student);
+		}
+		else {
+			//검색결과 없을때...검색결과가 없다고 출력
+			System.out.println("검색결과가 없습니다.");
+		}
+
+		//4.전체정보 출력(이터레이터 사용)
+		System.out.println("## 전체 객체를 출력합니다. ##");
+		Iterator<Student> itr = list.iterator();
+		while(itr.hasNext()) {
+			Student st = itr.next();
+			System.out.println(st);
+		}
+		/*
 		Scanner sc = new Scanner(System.in);
-		System.out.print("검색할 이름을 입력하세요:");
+		System.out.print("삭제할 이름을 입력하세요:");
 		String str = sc.nextLine();
 		int count = list.size();
 
@@ -97,5 +136,11 @@ public class QuArrayList {
 				System.out.println("검색결과가 없습니다.");
 			}
 		}
+		//3.검색결과 유/무에 따라 
+		//검색결과 있을때…검색된 데이터 삭제
+		//검색결과 없을때...검색결과가 없다고 출력
+
+		//4.전체정보 출력
+		*/
 	}
 }
