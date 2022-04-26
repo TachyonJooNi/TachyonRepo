@@ -33,7 +33,6 @@ public class E03baekjoon {
 		int fNum = 0; // N
 		int sNum = 0; // M
 		
-		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("첫번째 수를 입력하세요: (1 ≤ N ≤ 100,000)");
 		fNum = sc.nextInt(); // N입력받음
