@@ -221,7 +221,7 @@ class FriendInfoHandler {
 	}////end of deleteInfo
 }
 
-public class E06MyFriendInfoBook {
+public class Ex06MyFriendInfoBook {
 	
 	/*
 	매개변수도 없고 반환타입도 없는 메서드
